@@ -1,0 +1,22 @@
+{
+  "name": "eruda-geolocation",
+  "version": "1.0.0",
+  "main": "eruda-geolocation.js",
+  "scripts": {
+    "build": "uglifyjs eruda-geolocation.js -o eruda-geolocation.min.js --mangle",
+    "lint": "eslint eruda-geolocation.js",
+    "ci": "npm run lint && npm run build",
+    "dev": "nws -p 3000"
+  },
+  "keywords": [
+    "eruda",
+    "plugin"
+  ],
+  "author": "",
+  "devDependencies": {
+    "eruda": "^1.4.2",
+    "eslint": "^4.12.1",
+    "nws": "^1.1.1",
+    "uglify-js": "^3.2.0"
+  }
+}
