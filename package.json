@@ -1,6 +1,7 @@
 {
   "name": "eruda-geolocation",
   "version": "1.0.0",
+  "description": "Eruda plugin for testing geolocation",
   "main": "eruda-geolocation.js",
   "scripts": {
     "dev": "webpack-dev-server --host 0.0.0.0",
@@ -10,14 +11,20 @@
   },
   "keywords": [
     "eruda",
-    "plugin"
+    "plugin",
+    "geolocation"
   ],
   "eustia": {
     "files": "src/**/*.js",
     "output": "src/util.js",
     "format": "commonjs"
   },
-  "author": "",
+  "author": "redhoodsu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liriliri/eruda-geolocation/issues"
+  },
+  "homepage": "https://github.com/liriliri/eruda-geolocation#readme",
   "devDependencies": {
     "autoprefixer": "^7.2.2",
     "babel-core": "^6.26.0",
