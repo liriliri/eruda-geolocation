@@ -21,5 +21,8 @@
     },
     "parserOptions": {
         "sourceType": "module"
+    },
+    "globals": {
+        "L": true
     }
 }
