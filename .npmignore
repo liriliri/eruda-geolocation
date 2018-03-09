@@ -1,5 +1,7 @@
+/src/
+.eslintrc.json
 .gitignore
 .npmignore
-.eslintrc.json
 .travis.yml
 index.html
+webpack.config.js
