@@ -1,4 +1,5 @@
 src/
+eustia/
 .eslintignore
 .eslintrc.json
 .gitignore
