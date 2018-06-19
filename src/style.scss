@@ -1,21 +1,22 @@
 .geolocation {
-    position: relative;
-    .map {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-    }
-    .info {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background: #fff;
-        padding: 10px;
-        color: #263238;
-        width: 100%;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .05), 0 1px 4px 0 rgba(0, 0, 0, .08), 0 3px 1px -2px rgba(0, 0, 0, .2);
-        z-index: 1000;
-    }
+  position: relative;
+  .map {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    padding: 10px;
+    color: #263238;
+    width: 100%;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 4px 0 rgba(0, 0, 0, 0.08),
+      0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
 }

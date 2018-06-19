@@ -1,12 +1,13 @@
 {
   "name": "eruda-geolocation",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Eruda plugin for testing geolocation",
   "main": "eruda-geolocation.js",
   "scripts": {
     "dev": "webpack-dev-server --host 0.0.0.0",
     "build": "webpack && webpack -p",
-    "ci": "npm run lint && npm run build",
+    "ci": "npm run format && npm run lint && npm run build",
+    "format": "prettier *.js eustia/*.js src/*.js src/style.scss --write",
     "lint": "eslint src/**/*.js"
   },
   "keywords": [
@@ -40,6 +41,7 @@
     "postcss": "^6.0.14",
     "postcss-class-prefix": "^0.3.0",
     "postcss-loader": "^2.0.9",
+    "prettier": "^1.13.5",
     "sass-loader": "^6.0.6",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"
