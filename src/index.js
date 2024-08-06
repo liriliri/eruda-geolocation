@@ -1,7 +1,7 @@
-import { loadCss, loadJs } from './util'
+const loadJs = require('licia/loadJs')
 
-module.exports = function(eruda) {
-  let { evalCss } = eruda.util
+module.exports = function (eruda) {
+  const { evalCss } = eruda.util
 
   class Geolocation extends eruda.Tool {
     constructor() {
@@ -11,7 +11,9 @@ module.exports = function(eruda) {
     }
     init($el, container) {
       super.init($el, container)
-      $el.html(require('./template.hbs')())
+      $el.html(
+        '<div id="eruda-map" class="eruda-map"></div><div class="eruda-info"></div>'
+      )
 
       this._initMap()
       this._$info = this._$el.find('.eruda-info')
@@ -25,14 +27,14 @@ module.exports = function(eruda) {
       if (!navigator.geolocation) return
 
       navigator.geolocation.getCurrentPosition(
-        position => {
+        (position) => {
           var coords = position.coords,
             longitude = coords.longitude,
             latitude = coords.latitude
 
           this.setView(latitude, longitude)
         },
-        e => {
+        (e) => {
           this.setInfo(e.message)
         }
       )
@@ -56,27 +58,21 @@ module.exports = function(eruda) {
     }
     _initMap() {
       loadCss(
-        'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
+        'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
         this._$el.get(0)
       )
-      loadJs('https://unpkg.com/leaflet@1.3.1/dist/leaflet.js', isLoaded => {
+      loadJs('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', (isLoaded) => {
         if (!isLoaded) return this.setInfo('Failed to init map')
 
         this.setInfo('Map successfully initialized')
 
-        this._map = L.map(this._$el.find('#eruda-map').get(0)).setView(
-          [39.9, 116.39],
-          12
+        this._map = L.map(this._$el.find('#eruda-map').get(0), {
+          center: [39.9, 116.39],
+          zoom: 2,
+        })
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(
+          this._map
         )
-        L.tileLayer(
-          'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
-          {
-            maxZoom: 18,
-            id: 'mapbox.streets',
-            accessToken:
-              'pk.eyJ1Ijoic3VydW56aSIsImEiOiJjamVqbnk4c2gxN3JzMnltb3ByMXdkbDB5In0.Y6rCE361t15ATgiDb-o3Rw'
-          }
-        ).addTo(this._map)
 
         this.resetView()
       })
@@ -84,4 +80,15 @@ module.exports = function(eruda) {
   }
 
   return new Geolocation()
+}
+
+function loadCss(src, container) {
+  const link = document.createElement('link')
+
+  link.rel = 'stylesheet'
+  link.type = 'text/css'
+  link.href = src
+
+  container = container || document.head
+  container.appendChild(link)
 }

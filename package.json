@@ -1,55 +1,53 @@
 {
   "name": "eruda-geolocation",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Eruda plugin for testing geolocation",
   "main": "eruda-geolocation.js",
+  "browserslist": [
+    "since 2015",
+    "not dead"
+  ],
+  "files": [
+    "eruda-geolocation.js",
+    "eruda-geolocation.js.map"
+  ],
   "scripts": {
-    "dev": "webpack-dev-server --host 0.0.0.0",
-    "build": "webpack && webpack -p",
-    "ci": "npm run format && npm run lint && npm run build",
-    "format": "prettier *.js eustia/*.js src/*.js src/style.scss index.html --write",
-    "lint": "eslint src/**/*.js"
+    "dev": "webpack-dev-server --host 0.0.0.0 --mode development",
+    "build": "webpack --mode production",
+    "ci": "npm run lint && npm run build && npm run es5",
+    "lint": "eslint src/**/*.js",
+    "format": "lsla prettier \"src/*.{js,scss}\" \"*.json\" --write",
+    "es5": "es-check es5 eruda-geolocation.js"
   },
   "keywords": [
     "eruda",
     "plugin",
     "geolocation"
   ],
-  "eustia": {
-    "files": "src/**/*.js",
-    "output": "src/util.js",
-    "format": "commonjs"
-  },
-  "author": "redhoodsu",
+  "author": "surunzi",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/liriliri/eruda-geolocation/issues"
   },
   "homepage": "https://github.com/liriliri/eruda-geolocation#readme",
   "devDependencies": {
-    "autoprefixer": "^7.2.2",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "css-loader": "^0.28.7",
-    "eruda": "^2.0.0",
-    "eslint": "^5.4.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "handlebars": "^4.0.11",
-    "handlebars-loader": "^1.6.0",
-    "node-sass": "^4.7.2",
-    "postcss": "^6.0.14",
+    "@babel/core": "^7.21.3",
+    "@babel/plugin-transform-runtime": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^3.4.2",
+    "eruda": "^3.2.0",
+    "es-check": "^7.2.1",
+    "eslint": "^8.57.0",
+    "licia": "^1.41.1",
+    "postcss": "^8.4.21",
     "postcss-class-prefix": "^0.3.0",
-    "postcss-loader": "^2.0.9",
-    "prettier": "^1.14.2",
-    "sass-loader": "^6.0.6",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7"
+    "postcss-loader": "^7.0.2",
+    "sass": "^1.77.8",
+    "sass-loader": "^14.2.1",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.12.0"
   }
 }

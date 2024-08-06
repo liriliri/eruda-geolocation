@@ -1,20 +1,17 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true,
-        "commonjs": true
-    },
-    "extends": "eslint:recommended",
-    "rules": {
-        "quotes": [
-            "error",
-            "single"
-        ]
-    },
-    "parserOptions": {
-        "sourceType": "module"
-    },
-    "globals": {
-        "L": true
-    }
+  "env": {
+    "browser": true,
+    "es6": true,
+    "amd": true,
+    "commonjs": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "indent": ["error", 2],
+    "quotes": ["error", "single"],
+    "no-extra-semi": "off"
+  },
+  "globals": {
+    "L": true
+  }
 }
